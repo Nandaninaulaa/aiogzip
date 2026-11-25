@@ -12,9 +12,11 @@ layout.
 ```bash
 git clone https://github.com/<your-username>/aiogzip.git
 cd aiogzip
+git remote add upstream https://github.com/geoff-davis/aiogzip.git
+git fetch upstream
 uv sync --all-extras        # needs https://docs.astral.sh/uv/
 uv run prek install         # lint and type-check hooks
-git checkout -b my-change   # commits directly on main are refused
+git checkout -b my-change upstream/main
 # make your change, then:
 uv run prek run --all-files
 uv run pytest
